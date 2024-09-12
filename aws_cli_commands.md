@@ -23,26 +23,15 @@
 - aws ec2 get-console-output --instance-id i-0e212af1a7aew14fe
 - aws ec2 get-console-output --instance-id i-0e212af1a7aew14fe --latest --output text
 
-## creating EC2 instance from scratch
-1. Creating a VPC(Virtual Private Clous) under which ec2 instance will be launched. Note the *vpcId* generated here.
-- aws ec2 create-vpc --cidr-block 10.0.0.0/16
-
-2. Creating subnets, two subnets are required, from which one would be public to access internet. Note the *subnetId*
-    2.1. First Subnet # Public
-    - aws ec2 create-subnet --vpc-id <vpcId> --cidr-block 10.0.1.0/24 
-### Get console output
-
-- aws ec2 get-console-output --instance-id i-0e212af1a7aew14fe
-- aws ec2 get-console-output --instance-id i-0e212af1a7aew14fe --latest --output text
 
 ## creating EC2 instance from scratch
 1. Creating a VPC(Virtual Private Clous) under which ec2 instance will be launched. Note the *vpcId* generated here.
 - aws ec2 create-vpc --cidr-block 10.0.0.0/16
 
 2. Creating subnets, two subnets are required, from which one would be public to access internet. Note the *subnetId*. ap-south-1a or ap-south-1b availibility-zone can be taken as ap-south-1c does not support instance type t2.micro
-    2.1. First Subnet # Public
+    - 2.1 First Subnet # Public
     - aws ec2 create-subnet --vpc-id <vpcId> --cidr-block 10.0.1.0/24 --availability-zone ap-south-1a
-    2.2. Second subnet
+    - 2.2 Second subnet # Private
     - aws ec2 create-subnet --vpc-id <vpcId> --cidr-block 10.0.0.0/24 --availability-zone ap-south-1a
 
 3. Creating internet gateway, which is used by private subnet to access internet. Note the *InternetGatewayId*. And attach internet gateway to the vpc created.
