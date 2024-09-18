@@ -3,7 +3,7 @@ git clone remote-url
 
 ## After modifications to old files or add new files #Staging
 git add -all
-# or, git add -A
+> or, git add -A
 
 ## Use below command to check status
 git status
